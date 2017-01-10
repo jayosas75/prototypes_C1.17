@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Comparison Conditionals</title>
+    <script>
+        //feature set 1 and 2
+        var mySmallNumber = 5;
+        var myString = '5';
+        var myBigNumber = 255;
+        var output1 = mySmallNumber == myString;
+        var output2 = mySmallNumber === myString;
+        var output3 = mySmallNumber < myBigNumber;
+        var output4 = mySmallNumber > myBigNumber;
+        console.log('My output1 = ' + output1);
+        console.log('My output2 = ' + output2);
+        console.log('My output3 = ' + output3);
+        console.log('My output4 = ' + output4);
+
+        //feature set 3 and 4
+        var gameNumber = 64;
+        var userInput1 = 88;
+        var userInput2 = 64;
+        if (userInput1 > gameNumber) {
+            console.log('the number is too high');
+        }
+        if (userInput1 < gameNumber) {
+            console.log('the number is too low');
+        }
+        if (userInput1 < 1 || userInput1 > 100) {
+            console.log('the number is out of range');
+        } else {
+            console.log('the number is in range');
+        }
+        if (userInput2 === gameNumber) {
+            console.log('the correct number has been guessed');
+        } else {
+            console.log('please try again')
+        }
+
+        //feature set 5
+        switch(true) {
+            case userInput1 === gameNumber:
+                console.log('You found the correct number!');
+                break;
+            case userInput1 < gameNumber && gameNumber - 10 <= userInput1:
+                console.log('Too low but warm.');
+                break;
+            case userInput1 > gameNumber && gameNumber + 10 >= userInput1:
+                console.log('Too high but warm.');
+                break;
+            case userInput1 < gameNumber && gameNumber - 25 <= userInput1:
+                console.log('Too low and cold.');
+                break;
+            case userInput1 > gameNumber && gameNumber + 25 >= userInput1:
+                console.log('Too high and cold.');
+                break;
+            default:
+                console.log('You are way off.');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
