@@ -41,10 +41,37 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
+            var playground1_h1 = $('<h1>').html('I am a heading');
+            var playground1_p1 = $('<p>').html('This is an awesome paragraph');
+            var playground1_p2 = $('<p>').css('color', 'red').html('This has red text');
+
+            $('#playground1').append(playground1_h1, playground1_p1, playground1_p2);
 
             //playground 2 code
+            var playground2_div1 = $('<div>').addClass('awesome_class').html('Here is some awesome div text');
+            var playground2_div2 = $('<div>').addClass('awesome_class').html('Here is MORE awesome div text');
+            var playground2_div3 = $('<div>').addClass('awesome_class').html('Here is <strong>EVEN MORE</strong> awesome div text');
+           /* did not add ID or 'data-coolness' to playground2_div3. If i add an ID to another element on the page it
+           wouldn't recognize it since its in the html already(i think). Also googled data-coolness, nothing came up :/*/
+
+            $('#playground2').append(playground2_div1, playground2_div2, playground2_div3);
 
             //playground 3 code
+            var playground3_ul = $('<ul>').addClass('neato');
+            var playground3_li1 = $('<li>').html('Link 1');
+            var playground3_li2 = $('<li>').html('Link 2');
+            var playground3_li3 = $('<li>').html('Link 3');
+            var playground3_figure = $('<figure>').addClass('awesome_picture');
+            var playground3_img = $('<img>').attr("src","http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg");
+            var playground3_fig_cap = $('<figcaption>').html('That\'s right, <span class="bold_text">you are</span>');
+
+            /* Was not sure if I could append an element such as <span> to the back of the text content.
+             Thats why i put the <span> into the string for playground3_fig_cap. */
+
+            playground3_ul.append(playground3_li1, playground3_li2, playground3_li3);
+            playground3_figure.append(playground3_img, playground3_fig_cap);
+            $('#playground3').append(playground3_ul, playground3_figure);
+
         });
     </script>
 </head>
