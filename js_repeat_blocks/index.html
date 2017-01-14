@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Repeat Blocks AKA Loops</title>
+    <script>
+        //feature set 1
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        for (var i = 0; i < numbers.length; i++){
+            console.log('ascending order: ' +i);
+        }
+
+        for (var i = 10; i >=0; i--){
+            console.log('desending order: ' +i);
+        }
+
+        for (var i = 1; i <numbers.length; i+=2) {
+            console.log('odd numbers: ' +i);
+        }
+
+        var mixedArray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+
+        for (var i = 0; i <mixedArray.length; i++) {
+            if (mixedArray[i] % 2 !== 0){
+                console.log('odd numbers in mixedArray: ' +mixedArray[i]);
+            }
+        }
+
+        //feature set 2
+        var classRoom = {
+            desk1: 'Stu',
+            desk2: 'Peggy',
+            desk3: 'LoneStar',
+            desk4: 'George',
+            desk5: 'Sheldon'
+        }
+        for(var desk in classRoom){
+            console.log(classRoom[desk] + ' is at ' + desk + '.');
+        }
+
+        //feature set 3
+        var studentArray = [{name: "Bob", grade: 87},
+            {name: "Fred", grade: 82},
+            {name: "George", grade: 93},
+            {name: "Robert", grade: 85}];
+
+        function findStudent(studentName) {
+            var i = 0;
+            found = false;
+            output = '';
+
+            while(studentArray[i] && !found){
+                if(studentArray[i].name === studentName) {
+                    output = 'Found ' + studentName + ', their grade is ' + studentArray[i].grade + '.'
+                    found = true;
+                    return output;
+                }
+                i++;
+            }
+            if(!found){
+                return 'Student ' + studentName + ' not found.';
+            }
+        }
+
+        console.log('Correct name: ' + findStudent('Fred'));
+        console.log('Correct name: ' + findStudent('Bob'));
+        console.log('Correct name: ' + findStudent('Robert'));
+        console.log('Incorrect name: ' + findStudent('Thomas'));
+
+
+    </script>
+</head>
+<body>
+
+
+
+</body>
+</html>
