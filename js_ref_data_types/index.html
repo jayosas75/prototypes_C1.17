@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Reference Data Types</title>
+    <script>
+        //feature set 1.0
+        var student_array = ['John', 'Gwen', 'Derrick', 'Brock', 'Dan'];
+        console.log(student_array[2]);
+
+        //feature set 1.1
+        console.log(student_array);
+        console.log(student_array.length);
+        student_array.push('Andy', 'Mark');
+        console.log(student_array.length);
+        console.log(student_array);
+
+        //feature set 2.0
+        var student = {};
+        student.firstName = 'John';
+        student.lastName = 'Yosas';
+        student.age = 27;
+        student.school = 'LearningFuze';
+        student.questionList = [];
+        student.hasQuestion = false;
+
+        //feature set 2.1
+        student.greeting = function() {
+            return 'Hello, my name is ' + this.firstName;
+        }
+        student.aboutMe = function() {
+            return 'My full name is ' + this.firstName + " " + this.lastName + ", I am " + this.age +
+                    ' years old and I am a student at ' + this.school + '.';
+        }
+        student.askQuestion = function(question) {
+            this.hasQuestion = true;
+            this.questionList.push(question);
+            return 'A question has been added to your list'
+        }
+
+        student.answerQuestion = function() {
+            if (this.hasQuestion = true) {
+                this.hasQuestion = false;
+                return this.questionList[this.questionList.length - 1];
+            } else {
+                return 'You have no pending questions';
+            }
+        }
+
+        //feature set 2.2
+        console.log('My greeting: ' + student.greeting());
+        console.log('About me: ' + student.aboutMe());
+        console.log('answerQuestion Function: ' + student.answerQuestion());
+        console.log('askQuestion Function 1: ' + student.askQuestion('How should I prepare myself for this class?'));
+        console.log('askQuestion Function 2: ' + student.askQuestion('Any chance I can bring my own chair?'));
+        console.log('askQuestion Function 3: ' + student.askQuestion('Can I trade in my laptop for a Mac?'));
+        console.log('answerQuestion Function: ' + student.answerQuestion());
+
+        console.log('Question List: ' + student.questionList);
+
+        //quick console.log exercise
+        console.log('Here is my student object ' + student);
+        console.log('Here is my student object', student);
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
