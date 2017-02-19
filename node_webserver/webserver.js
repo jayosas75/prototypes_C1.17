@@ -1,5 +1,6 @@
 var http = require('http');
 var server = http.createServer(handleRequest);
+var fs = require('fs');
 
 server.listen(8888, function(){
     console.log('server is listening');
@@ -7,6 +8,35 @@ server.listen(8888, function(){
 
 function handleRequest(request, response){
     console.log('handling request');
-    response.write('initializing request response\n');
-    response.end('It works!! Path Hit: ', request.url);
+
+    fs.readFile('index.html',function(err, data){
+        if(err){
+            response.writeHead(404)
+            console.log('error is ', err);
+            response.end(err);
+        } else {
+            response.writeHead(200);
+            console.log(data);
+            response.end(data);
+        }
+    });
+
+
+
 }
+
+/*
+function requestHandler(request, response){
+    console.log('handling request');
+    fs.readFile('index.html', function(err, data){
+        if (err){
+            response.writeHead(404);
+            response.end(JSON.stringify(err));
+            return;
+        }
+        else{
+            response.writeHead(200);
+            response.end(data);
+        }
+    });
+}*/
