@@ -6,11 +6,11 @@ server.listen(8888, function(){
     console.log('server is listening');
 });
 
-function handleRequest(request, response){
+function handleRequest(request, response) {
     console.log('handling request');
 
-    fs.readFile('index.html',function(err, data){
-        if(err){
+    fs.readFile('index.html', function (err, data) {
+        if (err) {
             response.writeHead(404)
             console.log('error is ', err);
             response.end(err);
@@ -20,23 +20,4 @@ function handleRequest(request, response){
             response.end(data);
         }
     });
-
-
-
 }
-
-/*
-function requestHandler(request, response){
-    console.log('handling request');
-    fs.readFile('index.html', function(err, data){
-        if (err){
-            response.writeHead(404);
-            response.end(JSON.stringify(err));
-            return;
-        }
-        else{
-            response.writeHead(200);
-            response.end(data);
-        }
-    });
-}*/
