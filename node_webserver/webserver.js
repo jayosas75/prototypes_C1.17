@@ -11,7 +11,7 @@ function handleRequest(request, response) {
 
     fs.readFile('index.html', function (err, data) {
         if (err) {
-            response.writeHead(404)
+            response.writeHead(404);
             console.log('error is ', err);
             response.end(err);
         } else {
