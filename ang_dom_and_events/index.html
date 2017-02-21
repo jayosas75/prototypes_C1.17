@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <title>Angular DOM and Events</title>
     <!-- Add Angular CDN below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
 </head>
-<body>
-
+<body ng-app>
+<div ng-init="myVar=true" ng-init="counter=0">
+    <span ng-show="myVar">
+      Button is disabled
+    </span>
+    <span ng-hide="myVar">
+      Button is enabled
+    </span>
+    <button ng-disabled="myVar" ng-click="counter=counter+1">
+        Angular button
+    </button>
+    <input type="checkbox" ng-model="myVar">
+    <p>
+        The button has been clicked {{ counter }} times.
+    </p>
+</div>
 </body>
-</html>
