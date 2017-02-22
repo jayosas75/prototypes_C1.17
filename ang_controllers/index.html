@@ -1,12 +1,72 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Angular Controllers</title>
     <!-- Add the AngularJS CDN below -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="johnsApp">
 
+<div ng-controller="formController as fc">
+    <input type='text' ng-model='fc.form.fName' placeholder="First Name">
+    <br>
+    <input type='text' ng-model='fc.form.lName' placeholder="Last Name">
+    <br>
+    <input type='text' ng-model='fc.form.email' placeholder="Email">
+    <br>
+    <textarea placeholder="comments" ng-model='fc.form.comments' ng-change="fc.characters_in_comment()" ng-disabled="fc.characters_in_comment()"></textarea>
+    <br>
+    <p>Characters Remaining: {{ fc.charsLeft }} </p>
+    <button ng-click="fc.add_form_to_array()">Add Student</button>
+    <br>
+    <br>
+    <table border="1px solid black">
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Comments</th>
+        </tr>
+        <thead>
+        <tbody>
+        <tr ng-repeat="student in fc.formArray">
+            <td> {{ student.fName + ' ' + student.lName }}</td>
+            <td> {{ student.email }}</td>
+            <td> {{ student.comments }}</td>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('johnsApp', []);
+
+    app.controller('formController', function($log) {
+        var self = this;
+        this.form = {};
+        this.formArray = [];
+        this.maxLength = 25;
+        this.charsLeft = this.maxLength;
+        this.form.comments = "";
+        this.form.comments.length = 0;
+        document.querySelector('input').focus();
+        this.add_form_to_array = function () {
+            self.formArray.push(this.form);
+            self.characters_in_comment();
+            self.form = {};
+            self.form.comments = "";
+            self.form.comments.length = 0;
+        };
+        this.characters_in_comment = function () {
+            self.charsLeft = self.maxLength - self.form.comments.length;
+            if (self.charsLeft <= 0) {
+                self.form.comments.disable;
+                return true;
+            } else {
+                return false;
+            }
+        };
+    });
+</script>
 </body>
 </html>
