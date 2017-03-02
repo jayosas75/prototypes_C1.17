@@ -2,10 +2,28 @@
 <html>
 <head>
 	<title></title>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		function ajax_call(){
+			$.ajax({
+				url: 'getData.js',
+				method: 'POST',
+				dataType: 'application/json',
+				success: function(response){
+					console.log(response);
+				},
+				error: function(response){
+					console.log(response);
+				}
+			})
+		}
+	</script>
 </head>
 <body>
 <!-- 
-create your ajax request to getData.js.  Remember it is on your node server, so make sure the request is going to the appropriate port.  Then present the json data into your page 
+create your ajax request to getData.js.  Remember it is on your node server, so make sure the
+ request is going to the appropriate port.  Then present the json data into your page
 -->
+<button type="button" onClick="ajax_call()">Upload that data! :)</button>
 </body>
 </html>
