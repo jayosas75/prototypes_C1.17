@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //click handler for delete function
     $('tbody').on('click', '.delete', function(){
         var studentKey = $(this).closest('td').attr('data-uid');
         delete_student(studentKey, $(this));
